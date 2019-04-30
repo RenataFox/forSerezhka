@@ -1,0 +1,226 @@
+/**************************Timer******************************************/
+
+@import './settings.less';
+*, *::before, *::after {
+    box-sizing: border-box;
+  }
+  
+  .countdown {
+    text-align: center;
+  }
+  
+  .timer {
+    -webkit-perspective: 1000px;
+            perspective: 1000px;
+    .box{
+        display: inline-block;
+        margin: 1rem;
+        width: 10rem;
+        text-align: center;
+        background: @color1;
+        -moz-transform-style: preserve-3d;
+        font-family: "Graduate", sans-serif;
+        &:nth-child(2) .value {
+            -webkit-animation-delay: 1s;
+                    animation-delay: 1s;
+        }
+        &:nth-child(3) .value {
+            -webkit-animation-delay: 1.8s;
+                    animation-delay: 1.8s;
+        }
+        &:nth-child(4) .value {
+            -webkit-animation-delay: 1.3s;
+                    animation-delay: 1.3s;
+        }
+        &:nth-child(5) .value {
+            -webkit-animation-delay: 2s;
+                    animation-delay: 2s;
+        }
+        .spacer {
+            position: relative;
+            content: '';
+            display: block;
+            height: 20px;
+            background: @color2;
+            &::before, &::after{
+                content: '';
+                position: absolute;
+                top: 5px;
+                width: 10px;
+                height: 10px;
+                background: #FFF;
+                border-radius: 50%;
+            }
+            &::before{
+                left: .8rem;
+            }
+            &::after{
+                right: .8rem;
+            }
+        }
+        .value {
+            position: relative;
+            margin: 0;
+            padding: 1.2rem 0 2rem;
+            font-size: 3em;
+            color: rgba(109, 104, 117, 0.6);
+            background: @color2;
+            -webkit-transform-origin: top center;
+                    transform-origin: top center;
+            -webkit-animation: wind 4s ease-out alternate infinite;
+                    animation: wind 4s ease-out alternate infinite;
+            box-shadow: 0 15px 10px -10px rgba(181, 131, 141, 0);
+          }
+          .label {
+            margin: 0;
+            padding: 1rem;
+            color: rgba(255, 255, 255, 0.8);
+            background: @color1;
+            &::first-letter {
+                text-transform: uppercase;
+              }
+          }
+
+    }
+  }
+  
+  
+  .expired-timer .box {
+    max-width: 800px;
+    min-width: 50%;
+  }
+  
+  
+  
+  @-webkit-keyframes wind {
+    0% {
+      -webkit-transform: rotatex(0);
+              transform: rotatex(0);
+      box-shadow: 0 15px 10px -10px rgba(181, 131, 141, 0);
+      color: rgba(109, 104, 117, 0.6);
+      background: @color2;
+    }
+    10% {
+      -webkit-transform: rotatex(20deg);
+              transform: rotatex(20deg);
+      box-shadow: 0 15px 10px -10px darken(@color1,40%);
+      color: rgba(109, 104, 117, 0.45);
+      background: lighten(@color2,20%);
+    }
+  }
+  
+  @keyframes wind {
+    0% {
+      -webkit-transform: rotatex(0);
+              transform: rotatex(0);
+      box-shadow: 0 15px 10px -10px rgba(181, 131, 141, 0);
+      color: rgba(109, 104, 117, 0.6);
+      background: @color2;
+    }
+    10% {
+      -webkit-transform: rotatex(20deg);
+              transform: rotatex(20deg);
+      box-shadow: 0 15px 10px -10px darken(@color1,40%);
+      color: rgba(109, 104, 117, 0.45);
+      background: lighten(@color2,20%);
+    }
+  }
+  @-webkit-keyframes lighting {
+    0% {
+      box-shadow: -16px 0 0 2px rgba(255, 255, 255, 0.5), 14px 0 0 @color1;
+    }
+    4% {
+      box-shadow: -16px 0 0 2px white, 14px 0 0 @color1;
+    }
+    8% {
+      box-shadow: -16px 0 0 2px rgba(255, 255, 255, 0.5), 14px 0 0 @color1;
+    }
+    12% {
+      box-shadow: -16px 0 0 2px white, 14px 0 0 @color1;
+    }
+    20% {
+      box-shadow: -16px 0 0 2px white, 14px 0 0 @color1;
+    }
+    22% {
+      box-shadow: -16px 0 0 2px rgba(255, 255, 255, 0.5), 14px 0 0 @color1;
+    }
+  }
+  @keyframes lighting {
+    0% {
+      box-shadow: -16px 0 0 2px rgba(255, 255, 255, 0.5), 14px 0 0 @color1;
+    }
+    4% {
+      box-shadow: -16px 0 0 2px white, 14px 0 0 @color1;
+    }
+    8% {
+      box-shadow: -16px 0 0 2px rgba(255, 255, 255, 0.5), 14px 0 0 @color1;
+    }
+    12% {
+      box-shadow: -16px 0 0 2px white, 14px 0 0 @color1;
+    }
+    20% {
+      box-shadow: -16px 0 0 2px white, 14px 0 0 @color1;
+    }
+    22% {
+      box-shadow: -16px 0 0 2px rgba(255, 255, 255, 0.5), 14px 0 0 @color1;
+    }
+  }
+  @-webkit-keyframes lighting2 {
+    0% {
+      box-shadow: 16px 0 0 2px rgba(255, 255, 255, 0.5), -14px 0 0 @color1;
+    }
+    4% {
+      box-shadow: 16px 0 0 2px white, -14px 0 0 @color1;
+    }
+    8% {
+      box-shadow: 16px 0 0 2px rgba(255, 255, 255, 0.5), -14px 0 0 @color1;
+    }
+    12% {
+      box-shadow: 16px 0 0 2px white, -14px 0 0 @color1;
+    }
+    20% {
+      box-shadow: 16px 0 0 2px white, -14px 0 0 @color1;
+    }
+    22% {
+      box-shadow: 16px 0 0 2px rgba(255, 255, 255, 0.5), -14px 0 0 @color1;
+    }
+  }
+  @keyframes lighting2 {
+    0% {
+      box-shadow: 16px 0 0 2px rgba(255, 255, 255, 0.5), -14px 0 0 @color1;
+    }
+    4% {
+      box-shadow: 16px 0 0 2px white, -14px 0 0 @color1;
+    }
+    8% {
+      box-shadow: 16px 0 0 2px rgba(255, 255, 255, 0.5), -14px 0 0 @color1;
+    }
+    12% {
+      box-shadow: 16px 0 0 2px white, -14px 0 0 @color1;
+    }
+    20% {
+      box-shadow: 16px 0 0 2px white, -14px 0 0 @color1;
+    }
+    22% {
+      box-shadow: 16px 0 0 2px rgba(255, 255, 255, 0.5), -14px 0 0 @color1;
+    }
+  }
+  @media screen and (max-width: 800px) {
+    .countdown {
+      width: 100%;
+      max-width: 25rem;
+    }
+  }
+  @media screen and (max-width: 480px) {
+    .timer .box {
+      margin: 1rem .5rem;
+      width: 8rem;
+    }
+  
+    .expired-timer .box {
+      width: 18rem;
+    }
+  }
+
+  /*****************************************************************************/
+  

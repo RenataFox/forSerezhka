@@ -1,0 +1,149 @@
+@import './settings.less';
+
+body{
+    margin: 0;
+    font-family: "Graduate", sans-serif;
+    color: @textColor;
+}
+
+/**********generate type**************************************/
+
+.indents(10);
+
+.indents(@n, @i: 1) when (@i =< @n) {
+  .m-@{i} {
+    margin: (@i * 5px);
+  }
+  .mt-@{i} {
+    margin-top: (@i * 5px);
+  }
+  .mb-@{i} {
+    margin-bottom: (@i * 5px);
+  }
+  .ml-@{i} {
+    margin-left: (@i * 5px);
+  }
+  .mr-@{i} {
+    margin-right: (@i * 5px);
+  }
+
+  .p-@{i} {
+    padding: (@i * 5px);
+  }
+  .pt-@{i} {
+    padding-top: (@i * 5px);
+  }
+  .pb-@{i} {
+    padding-bottom: (@i * 5px);
+  }
+  .pl-@{i} {
+    padding-left: (@i * 5px);
+  }
+  .pr-@{i} {
+    padding-right: (@i * 5px);
+  }
+
+  .indents(@n, (@i + 1));
+}
+
+.size(35);
+.size(@n, @i: 8) when (@i =< @n) {
+    .size-@{i} {
+        font-size: 1px*@i;
+    }
+    .size(@n, (@i + 1));
+}
+
+.block{
+    display: block;
+}
+
+a{
+    text-decoration: none;
+    color:@textColor;
+}
+
+a:hover{
+    text-decoration: underline;
+}
+
+
+
+
+.center{
+    text-align: center;
+}
+.left{
+    text-align: left;
+}
+
+.right{
+    text-align: right;
+}
+
+
+.wrapper{
+    width: 100%;
+    max-width:1200px;
+    margin: auto;
+}
+.header {
+    grid-area: hd;
+}
+.footer {
+    grid-area: ft;
+}
+.content {
+    grid-area: main;
+
+}
+.aside1 {
+    grid-area: sd1;
+    background-color: @color2;
+}
+
+.aside2 {
+    grid-area: sd2;
+    background-color: @color2;
+}
+.main-grid{
+    display: grid;
+    grid-template-columns: 100%;
+    grid-auto-rows: minmax(100px, auto);
+    grid-template-areas: 
+      "hd"
+      "sd1"
+      "main"
+      "sd2"
+      "ft";
+}
+
+@media (min-width:1200px){
+    .main-grid{
+        display: grid;
+        grid-template-columns: repeat(8, 1fr);
+        grid-template-rows: minmax(100px, auto) minmax(50vh, auto) minmax(100px, auto);
+        
+        grid-template-areas: 
+          "hd  hd   hd   hd   hd   hd   hd   hd"
+          "sd1  main  main main main main main sd2"
+          "ft  ft ft   ft   ft   ft   ft   ft"; 
+    }
+}
+
+/******************************************Slider*************************************************/
+.slider {
+    max-width: 100%;
+    margin: auto;
+}
+
+
+
+
+/*******************************************************************************************/
+
+
+.header .router-link-exact-active{
+    color: @color1;
+}
+
